@@ -124,7 +124,7 @@ const Manager = () => {
 
 
             {/* STARTS  */}
-            <div className="md:container p-3 m-3 flex-wrap wrap min-h-screen;">
+            <div className="md:container p-3 m-3 flex-wrap wrap min-h-[77.9vh]">
                 {/* heading  */}
                 <div className="heading">
                     <h1 className='font-extrabold text-5xl text-center text-pink-700'>&lt; Pass-Safe /&gt;</h1>
