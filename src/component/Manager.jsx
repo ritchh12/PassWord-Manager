@@ -138,14 +138,14 @@ const Manager = () => {
                 </div>
 
                 {/* credentials */}
-                <div className=' flex flex-col md:flex-row justify-center gap-5 md:gap-20  ' >
+                <div className=' flex flex-col md:flex-row justify-center gap-5 md:gap-6  ' >
 
                     {/* username  */}
                     <input name='username' value={form.username} onChange={handleChange} type="text" placeholder='enter username' className='bg-pink-200 py-[8px] px-[12px] border border-solid border-pink-300 md:w-[50vw] rounded-full  focus:border-white focus:outline-none ' />
 
                     {/* password  */}
                     <input name='password' onKeyDown={handleKeyDown} ref={ref} value={form.password} onChange={handleChange} type="password" placeholder='enter password' className='bg-pink-200 py-[8px] px-[12px]  border border-solid border-pink-300 md:w-[15vw] rounded-full  focus:border-white focus:outline-none ' />
-                    <span className='absolute right-56 cursor-pointer top-[254px]' onClick={showPassword}><lord-icon
+                    <span className='inset-y-1 flex items-center cursor-pointer ' onClick={showPassword}><lord-icon
                         src="https://cdn.lordicon.com/dicvhxpz.json"
                         trigger="hover"
                         stroke="bold"
