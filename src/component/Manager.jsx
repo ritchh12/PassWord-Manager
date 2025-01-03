@@ -203,7 +203,7 @@ flex-wrap: wrap;">
 
                                     {/* edit */}
                                     </span>
-                                    <span onClick={()=>handleEdit(item.id)} className='cursor-pointer'><img src="edit.png" width={30}  alt="Edit" />
+                                    <span onClick={()=>handleEdit(item.id)} className='cursor-pointer'><img src="/edit.png" width={30}  alt="Edit" />
 </span></td>
                                 </tr>
 
