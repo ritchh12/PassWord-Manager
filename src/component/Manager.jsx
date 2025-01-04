@@ -118,18 +118,16 @@ const Manager = () => {
             pauseOnHover
             theme="light"
         />
-            <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,rgba(251,207,232,0.1)_1px,transparent_1px),linear-gradient(to_bottom,rgba(251,207,232,0.1)_1px,transparent_1px)] bg-[size:6rem_4rem]">
-                <div className="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_800px_at_100%_200px,#f8a8d8,transparent)]"></div>
-            </div>
+            
 
 
             {/* STARTS  */}
             <div className="md:container p-3 m-3 flex-wrap wrap min-h-[77.9vh]">
                 {/* heading  */}
                 <div className="heading">
-                    <h1 className='font-extrabold text-5xl text-center text-pink-700'>&lt; Pass-Safe /&gt;</h1>
+                    <h1 className='font-extrabold text-5xl text-center text-gray-700'>&lt; Pass-Safe /&gt;</h1>
 
-                    <p className='text-center'>Your own Password Manager</p>
+                    <p className='text-center text-gray-400'>Your own Password Manager</p>
                 </div>
 
                 {/* website input  */}
@@ -157,22 +155,22 @@ const Manager = () => {
                 {/* save button  */}
                 <div className="flex justify-center my-5">
 
-                    <button onClick={savePassword} type="submit" className='flex gap-2 justify-center items-center rounded-full border border-solid py-2 px-6  bg-pink-200 font-semibold text-pink-700 focus:border-pink-500 focus:ring-2 focus:ring-pink-300 focus:outline-none' >
+                    <button onClick={savePassword} type="submit" className='flex gap-2 justify-center items-center rounded-full border border-solid py-2 px-6  bg-gray-400 font-semibold text-green-300 focus:border-green-300 focus:ring-2 focus:ring-white focus:outline-none' >
                         <lord-icon
                             src="https://cdn.lordicon.com/sbnjyzil.json"
                             trigger="hover"
                             stroke="bold"
-                            colors="primary:#ee66aa,secondary:#c7166f">
+                            colors="primary:#e83a30,secondary:#c7166f">
                         </lord-icon> Save</button>
 
                 </div>
 
                 {/* table  */}
-                <h2 className='font-extrabold text-pink-700 text-2xl text-center'> Your Passwords</h2>
-                {passwordArray.length === 0 && <div className='text-lg text-center m-10  text-pink-600 '>Nothing to Show</div>}
+                <h2 className='font-extrabold text-gray-700 text-2xl text-center'> Your Passwords</h2>
+                {passwordArray.length === 0 && <div className='text-lg text-center m-10  text-gray-600 '>Nothing to Show</div>}
                 {passwordArray.length != 0 && <div className=' md:p-5 overflow-x-auto '>
                     <table className="table-auto md:w-[90vw] md:mx-auto rounded-lg overflow-hidden md:ml-7">
-                        <thead className='bg-pink-700'>
+                        <thead className='bg-gray-400'>
                             <tr className=''>
                                 <th className='px-4 py-2'>Site</th>
                                 <th className='px-4 py-2'>Username</th>

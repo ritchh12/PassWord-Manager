@@ -4,7 +4,7 @@ const Navbar = () => {
   return (
     <nav className='sticky top-0  '>
       <header className="text-gray-600 body-font  ">
-  <div className="  container mx-auto flex flex-wrap p-5   flex-col md:flex-row items-center bg-pink-400">
+  <div className="  container mx-auto flex flex-wrap p-5   flex-col md:flex-row items-center bg-slate-400">
     <nav className="flex lg:w-2/5 flex-wrap items-center text-base md:ml-auto ">
       {/* <a href='#' className="mr-5 hover:text-gray-900">Home</a>
       <a href='#' className="mr-5 hover:text-gray-900">About</a>
@@ -16,7 +16,7 @@ const Navbar = () => {
         <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
       </svg> */}
       <img className='cursor-pointer' src="/key.png" alt="" />
-      <span className="ml-3 text-red-900 text-xl font-extrabold baloo font-mono cursor-pointer">Pass-Safe</span>
+      <span className="ml-3 text-gray-700 text-xl font-extrabold baloo font-mono cursor-pointer">Pass-Safe</span>
     </a>
     <div className="lg:w-2/5 inline-flex lg:justify-end ml-5 lg:ml-0">
     <a className='' target='_blank' href="https://github.com/ritchh12">  
