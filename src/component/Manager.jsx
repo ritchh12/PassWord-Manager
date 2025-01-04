@@ -7,7 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 const Manager = () => {
     const ref = useRef();
     const clearRef = useRef();
-    const [form, setform] = useState({id:"", site: "", username: "", password: "" })
+    const [form, setform] = useState({ id: "", site: "", username: "", password: "" })
     const [passwordArray, setPasswordArray] = useState([])
 
 
@@ -21,8 +21,8 @@ const Manager = () => {
     }, [])
 
     const savePassword = () => {
-        setPasswordArray([...passwordArray,{...form,id:uuidv4()}])
-        localStorage.setItem("passwords", JSON.stringify([...passwordArray, {...form,id:uuidv4()}]))
+        setPasswordArray([...passwordArray, { ...form, id: uuidv4() }])
+        localStorage.setItem("passwords", JSON.stringify([...passwordArray, { ...form, id: uuidv4() }]))
         setform({ id: "", site: "", username: "", password: "" });
         console.log([...passwordArray, form])
         toast('Password Saved', {
@@ -68,40 +68,40 @@ const Manager = () => {
             theme: "light",
         });
     }
-    const handleDelete=(id) => {
-    //   console.log(id)
+    const handleDelete = (id) => {
+        //   console.log(id)
 
-        const udpatedArray=passwordArray.filter((item)=>{
-            return item.id!==id;
+        const udpatedArray = passwordArray.filter((item) => {
+            return item.id !== id;
         })
         setPasswordArray(udpatedArray)
-        localStorage.setItem("passwords",JSON.stringify(udpatedArray))
-    
-    toast('Password Deleted', {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: false,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-    });
-}
+        localStorage.setItem("passwords", JSON.stringify(udpatedArray))
 
-    const handleEdit=(id) => {
-        ref.current.type="text"
-        const data=passwordArray.filter((item)=>{
-            return item.id===id;
+        toast('Password Deleted', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
+    }
+
+    const handleEdit = (id) => {
+        ref.current.type = "text"
+        const data = passwordArray.filter((item) => {
+            return item.id === id;
         })
         //   console.log(data);
         //   console.log(data[0]["site"])
-        setform({id:data[0]["id"],site:data[0]["site"],username:data[0]["username"],password: data[0]["password"]})
+        setform({ id: data[0]["id"], site: data[0]["site"], username: data[0]["username"], password: data[0]["password"] })
         handleDelete(id);
 
     }
-    
-    
+
+
 
 
     return (
@@ -118,7 +118,7 @@ const Manager = () => {
             pauseOnHover
             theme="light"
         />
-            
+
 
 
             {/* STARTS  */}
@@ -155,12 +155,11 @@ const Manager = () => {
                 {/* save button  */}
                 <div className="flex justify-center my-5">
 
-                    <button onClick={savePassword} type="submit" className='flex gap-2 justify-center items-center rounded-full border border-solid py-2 px-6  bg-gray-400 font-semibold text-slate-300 focus:border-green-300 focus:ring-2 focus:ring-white focus:outline-none' >
+                    <button onClick={savePassword} type="submit" className='flex gap-2 justify-center items-center rounded-full border border-solid py-2 px-6  bg-gray-400 font-semibold text-slate-100 focus:border-green-300 focus:ring-2 focus:ring-white focus:outline-none' >
                         <lord-icon
-                            src="https://cdn.lordicon.com/sbnjyzil.json"
+                            src="https://cdn.lordicon.com/jgnvfzqg.json"
                             trigger="hover"
-                            stroke="bold"
-                            colors="primary:#e83a30,secondary:#c7166f">
+                            colors="primary:#ffffff">
                         </lord-icon> Save</button>
 
                 </div>
@@ -174,7 +173,7 @@ const Manager = () => {
                             <tr className=''>
                                 <th className='px-4 py-2'>Site</th>
                                 <th className='px-4 py-2'>Username</th>
-                                <th className='px-4 py-2'>Password</th>   
+                                <th className='px-4 py-2'>Password</th>
                                 <th className='px-4 py-2'>Actions</th>
                             </tr>
                         </thead>
@@ -182,7 +181,7 @@ const Manager = () => {
                             {passwordArray.map((item, index) => {
 
                                 return <tr key={index} className='border border-solid'>
-                                    <td className='px-4 py-2 text-center flex justify-center ' >{item.site}<span       onClick={() => handleCopy(item.password)} className="cursor-pointer material-symbols-outlined">
+                                    <td className='px-4 py-2 text-center flex justify-center ' >{item.site}<span onClick={() => handleCopy(item.password)} className="cursor-pointer material-symbols-outlined">
                                         content_copy
                                     </span></td>
                                     <td className='px-4 py-2 text-center' >{item.username}</td>
@@ -190,7 +189,7 @@ const Manager = () => {
 
 
                                     {/* delete  */}
-                                    <td className='px-4 py-2 text-center flex justify-center gap-4 items-center' ><span className='z-0 cursor-pointer' onClick={()=>handleDelete(item.id)}><lord-icon
+                                    <td className='px-4 py-2 text-center flex justify-center gap-4 items-center' ><span className='z-0 cursor-pointer' onClick={() => handleDelete(item.id)}><lord-icon
                                         src="https://cdn.lordicon.com/skkahier.json"
                                         trigger="hover"
                                         colors="primary:#e83a30"
@@ -198,10 +197,10 @@ const Manager = () => {
                                     </lord-icon>
 
 
-                                    {/* edit */}
+                                        {/* edit */}
                                     </span>
-                                    <span onClick={()=>handleEdit(item.id)} className='cursor-pointer w-8'><img src="/edit.png"   alt="Edit" />
-</span></td>
+                                        <span onClick={() => handleEdit(item.id)} className='cursor-pointer w-8'><img src="/edit.png" alt="Edit" />
+                                        </span></td>
                                 </tr>
 
                             })}
