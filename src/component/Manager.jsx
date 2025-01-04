@@ -6,6 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 
 const Manager = () => {
     const ref = useRef();
+    const imgRef=useRef();
     const clearRef = useRef();
     const [form, setform] = useState({ id: "", site: "", username: "", password: "" })
     const [passwordArray, setPasswordArray] = useState([])
@@ -45,6 +46,7 @@ const Manager = () => {
         //     ref.current.type="password"
         // }
         ref.current.type = ref.current.type.includes("password") ? "text" : "password";
+        imgRef.current.src = imgRef.current.src.includes("eye.png") ? "hide.png" : "eye.png";
     }
     const handleChange = (e) => {
         setform({ ...form, [e.target.name]: e.target.value })
@@ -143,13 +145,16 @@ const Manager = () => {
 
                     {/* password  */}
                     <input name='password' onKeyDown={handleKeyDown} ref={ref} value={form.password} onChange={handleChange} type="password" placeholder='enter password' className='bg-pink-200 py-[8px] px-[12px]  border border-solid border-pink-300 md:w-[15vw] rounded-full  focus:border-white focus:outline-none ' />
-                    <span className='inset-y-1 flex items-center cursor-pointer ' onClick={showPassword}><lord-icon
+                    <span className='inset-y-1 flex items-center cursor-pointer ' onClick={showPassword}>
+                        <img ref={imgRef} src="eye.png" alt="" />
+                        {/* <lord-icon
                         src="https://cdn.lordicon.com/dicvhxpz.json"
                         trigger="hover"
                         stroke="bold"
                         state="in-reveal"
                         colors="primary:#f4a09c,secondary:#c7166f">
-                    </lord-icon></span>
+                    </lord-icon> */}
+                    </span>
                 </div>
 
                 {/* save button  */}
@@ -189,17 +194,17 @@ const Manager = () => {
 
 
                                     {/* delete  */}
-                                    <td className='px-4 py-2 text-center flex justify-center gap-4 items-center' ><span className='z-0 cursor-pointer' onClick={() => handleDelete(item.id)}><lord-icon
+                                    <td className='px-4 py-2 text-center flex justify-center gap-4 align-middle items-center' ><span className='z-0 cursor-pointer' onClick={() => handleDelete(item.id)}><lord-icon
                                         src="https://cdn.lordicon.com/skkahier.json"
                                         trigger="hover"
-                                        colors="primary:#e83a30"
+                                        colors="primary:#9UA9AF"
                                     >
                                     </lord-icon>
 
 
                                         {/* edit */}
                                     </span>
-                                        <span onClick={() => handleEdit(item.id)} className='cursor-pointer w-8'><img src="/edit.png" alt="Edit" />
+                                        <span onClick={() => handleEdit(item.id)} className='cursor-pointer w-8'><img className='-my-4' src="/edit.png" alt="Edit" />
                                         </span></td>
                                 </tr>
 
