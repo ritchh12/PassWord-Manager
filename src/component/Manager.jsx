@@ -155,7 +155,7 @@ const Manager = () => {
                 {/* save button  */}
                 <div className="flex justify-center my-5">
 
-                    <button onClick={savePassword} type="submit" className='flex gap-2 justify-center items-center rounded-full border border-solid py-2 px-6  bg-gray-400 font-semibold text-green-300 focus:border-green-300 focus:ring-2 focus:ring-white focus:outline-none' >
+                    <button onClick={savePassword} type="submit" className='flex gap-2 justify-center items-center rounded-full border border-solid py-2 px-6  bg-gray-400 font-semibold text-slate-300 focus:border-green-300 focus:ring-2 focus:ring-white focus:outline-none' >
                         <lord-icon
                             src="https://cdn.lordicon.com/sbnjyzil.json"
                             trigger="hover"
@@ -190,7 +190,7 @@ const Manager = () => {
 
 
                                     {/* delete  */}
-                                    <td className='px-4 py-2 text-center flex justify-center gap-4 items-center' ><span className='cursor-pointer' onClick={()=>handleDelete(item.id)}><lord-icon
+                                    <td className='px-4 py-2 text-center flex justify-center gap-4 items-center' ><span className='z-0 cursor-pointer' onClick={()=>handleDelete(item.id)}><lord-icon
                                         src="https://cdn.lordicon.com/skkahier.json"
                                         trigger="hover"
                                         colors="primary:#e83a30"
