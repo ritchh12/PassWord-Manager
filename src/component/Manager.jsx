@@ -213,7 +213,7 @@ const Manager = () => {
                                         content_copy
                                     </span></td>
                                     <td className='px-4 py-2 text-center' >{item.username}</td>
-                                    <td className='px-4 py-2 text-center' >{item.password}</td>
+                                    <td className='px-4 py-2 text-center' >{"*".repeat(item.password.length)}</td>
 
 
                                     {/* delete  */}
