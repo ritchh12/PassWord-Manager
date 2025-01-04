@@ -6,7 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 
 const Manager = () => {
     const ref = useRef();
-    const imgRef=useRef();
+    const imgRef = useRef();
     const clearRef = useRef();
     const [form, setform] = useState({ id: "", site: "", username: "", password: "" })
     const [passwordArray, setPasswordArray] = useState([])
@@ -22,20 +22,35 @@ const Manager = () => {
     }, [])
 
     const savePassword = () => {
-        setPasswordArray([...passwordArray, { ...form, id: uuidv4() }])
-        localStorage.setItem("passwords", JSON.stringify([...passwordArray, { ...form, id: uuidv4() }]))
-        setform({ id: "", site: "", username: "", password: "" });
-        console.log([...passwordArray, form])
-        toast('Password Saved', {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: false,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-        });
+        if (form.site.length > 0 && form.username.length > 0 && form.password.length > 0) {
+
+            setPasswordArray([...passwordArray, { ...form, id: uuidv4() }])
+            localStorage.setItem("passwords", JSON.stringify([...passwordArray, { ...form, id: uuidv4() }]))
+            setform({ id: "", site: "", username: "", password: "" });
+            console.log([...passwordArray, form])
+            toast('Password Saved', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+        }
+        else {
+            toast.error('Password Not Saved', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+        }
     }
 
 
@@ -72,23 +87,26 @@ const Manager = () => {
     }
     const handleDelete = (id) => {
         //   console.log(id)
+        let c = confirm("Do you want to delete this password?")
+        if (c) {
 
-        const udpatedArray = passwordArray.filter((item) => {
-            return item.id !== id;
-        })
-        setPasswordArray(udpatedArray)
-        localStorage.setItem("passwords", JSON.stringify(udpatedArray))
+            const udpatedArray = passwordArray.filter((item) => {
+                return item.id !== id;
+            })
+            setPasswordArray(udpatedArray)
+            localStorage.setItem("passwords", JSON.stringify(udpatedArray))
 
-        toast('Password Deleted', {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: false,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-        });
+            toast('Password Deleted', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+        }
     }
 
     const handleEdit = (id) => {
@@ -99,7 +117,12 @@ const Manager = () => {
         //   console.log(data);
         //   console.log(data[0]["site"])
         setform({ id: data[0]["id"], site: data[0]["site"], username: data[0]["username"], password: data[0]["password"] })
-        handleDelete(id);
+        // handleDelete(id);
+        const udpatedArray = passwordArray.filter((item) => {
+            return item.id !== id;
+        })
+        setPasswordArray(udpatedArray)
+        localStorage.setItem("passwords", JSON.stringify(udpatedArray))
 
     }
 
@@ -124,7 +147,7 @@ const Manager = () => {
 
 
             {/* STARTS  */}
-            <div className="md:container p-3 m-3 flex-wrap wrap min-h-[80vh]">
+            <div className="md:container p-3 m-3 flex-wrap wrap min-h-[79.8vh]">
                 {/* heading  */}
                 <div className="heading">
                     <h1 className='font-extrabold md:text-5xl text-center text-gray-700'>&lt; Pass-Safe /&gt;</h1>
